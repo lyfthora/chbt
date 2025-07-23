@@ -1,4 +1,5 @@
 const promptForm = document.querySelector(".prompt-form");
+const chatsContainer = document.querySelector(".chats-container");
 const promptInput = promptForm.querySelector(".prompt-input");
 
 let userMessage = "";
@@ -17,9 +18,11 @@ const handleFormSubmit = (e) => {
   userMessage = promptInput.value.trim();
   if (!userMessage) return;
 
+  // generate user  mssg and add in the chats container
   const userMsgHTML = `<p class="message-text"></p>`;
   const userMsgDiv = createMsgElement(userMsgHTML, "user-message");
   userMsgDiv.querySelector(".message-text").textContent = userMessage;
+  chatsContainer.appendChild(userMsgDiv);
 };
 
 promptForm.addEventListener("submit", handleFormSubmit);
