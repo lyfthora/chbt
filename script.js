@@ -23,6 +23,16 @@ const handleFormSubmit = (e) => {
   const userMsgDiv = createMsgElement(userMsgHTML, "user-message");
   userMsgDiv.querySelector(".message-text").textContent = userMessage;
   chatsContainer.appendChild(userMsgDiv);
+
+  setTimeout(() => {
+    // generate bot  mssg and add in the chats container in 600ms
+    const botMsgHTML = `<img src="gemini-chatbot-logo.svg" class="avatar" />
+          <p class="message-text">
+            Just a sec.....
+          </p>`;
+    const botMsgDiv = createMsgElement(botMsgHTML, "bot-message");
+    chatsContainer.appendChild(botMsgDiv);
+  }, 600);
 };
 
 promptForm.addEventListener("submit", handleFormSubmit);
